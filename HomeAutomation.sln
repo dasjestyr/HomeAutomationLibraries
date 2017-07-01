@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeAutomation.Monitor", "HomeAutomation.Monitor\HomeAutomation.Monitor.csproj", "{896DC893-210E-4549-89D1-4251284EF214}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeAutomation.Monitor", "HomeAutomation.Monitor\HomeAutomation.Monitor.csproj", "{602B8F10-61A7-425B-9373-F97CDA3A0C12}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeAutomation.PhilipsHue", "HomeAutomation.PhilipsHue\HomeAutomation.PhilipsHue.csproj", "{C7F8AFDA-8BF0-4911-ACFD-1F62B507AC11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeAutomation.PhilipsHue.Tests", "HomeAutomation.PhilipsHue.Tests\HomeAutomation.PhilipsHue.Tests.csproj", "{D038C7CA-1021-48AB-9EFA-BCBBA1E787ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +15,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{896DC893-210E-4549-89D1-4251284EF214}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{896DC893-210E-4549-89D1-4251284EF214}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{896DC893-210E-4549-89D1-4251284EF214}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{896DC893-210E-4549-89D1-4251284EF214}.Release|Any CPU.Build.0 = Release|Any CPU
+		{602B8F10-61A7-425B-9373-F97CDA3A0C12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{602B8F10-61A7-425B-9373-F97CDA3A0C12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{602B8F10-61A7-425B-9373-F97CDA3A0C12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{602B8F10-61A7-425B-9373-F97CDA3A0C12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7F8AFDA-8BF0-4911-ACFD-1F62B507AC11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7F8AFDA-8BF0-4911-ACFD-1F62B507AC11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7F8AFDA-8BF0-4911-ACFD-1F62B507AC11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7F8AFDA-8BF0-4911-ACFD-1F62B507AC11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D038C7CA-1021-48AB-9EFA-BCBBA1E787ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D038C7CA-1021-48AB-9EFA-BCBBA1E787ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D038C7CA-1021-48AB-9EFA-BCBBA1E787ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D038C7CA-1021-48AB-9EFA-BCBBA1E787ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

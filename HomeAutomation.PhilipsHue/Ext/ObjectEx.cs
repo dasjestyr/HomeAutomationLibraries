@@ -6,15 +6,18 @@ namespace HomeAutomation.PhilipsHue.Ext
 {
     public static class ObjectEx
     {
-        public static string ToJson(this object target)
+        public static string ToJson(this object target, bool ignoreNull = false)
         {
-            var asJson = JsonConvert.SerializeObject(target);
-            return asJson;
+            var settings = ignoreNull
+                ? new JsonSerializerSettings {NullValueHandling = NullValueHandling.Ignore}
+                : new JsonSerializerSettings {NullValueHandling = NullValueHandling.Include};
+
+            return JsonConvert.SerializeObject(target, Formatting.None, settings);
         }
 
-        public static HttpContent ToJsonContent(this object target)
+        public static HttpContent ToJsonContent(this object target, bool ignoreNull = false)
         {
-            var asJson = target.ToJson();
+            var asJson = target.ToJson(ignoreNull);
             var content = new StringContent(asJson, Encoding.UTF8, "application/json");
             return content;
         }

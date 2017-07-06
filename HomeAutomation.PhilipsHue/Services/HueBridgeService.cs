@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
 using System.Threading.Tasks;
 using DAS.Infrastructure.WebClient;
-using HomeAutomation.PhilipsHue.ApplicationConfiguration;
 using HomeAutomation.PhilipsHue.Bridge;
-using HomeAutomation.PhilipsHue.Services.HueApi;
+using HomeAutomation.PhilipsHue.Configuration.ApplicationConfiguration;
 using HomeAutomation.PhilipsHue.Services.HueApi.Bridge;
 
 namespace HomeAutomation.PhilipsHue.Services
@@ -71,24 +69,10 @@ namespace HomeAutomation.PhilipsHue.Services
 
                 _appConfigManager.AppConfiguration.HueBridges.RemoveAll(b => b.IpAddress == bridge.IpAddress);
                 _appConfigManager.AppConfiguration.HueBridges.Add(bridge);
-                _appConfigManager.SaveConfiguration();
+                await _appConfigManager.SaveConfiguration();
             }
 
             return response;
-        }
-    }
-
-    public class GetBridgeConfigurationRequest : PhilipsHueRequest
-    {
-        public GetBridgeConfigurationRequest(HueBridge bridge) 
-            : base(HttpMethod.Get, bridge)
-        {
-        }
-
-        protected override void SetRequest(IResourceBuilder builder)
-        {
-            base.SetRequest(builder);
-            builder.WithPath($"{Bridge.Username}/config");
         }
     }
 }

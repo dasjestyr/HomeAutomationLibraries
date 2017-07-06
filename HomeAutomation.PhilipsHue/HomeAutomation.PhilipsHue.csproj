@@ -53,6 +53,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\ApplicationConfiguration\ApplicationFile.cs" />
+    <Compile Include="Configuration\ApplicationConfiguration\IRepository.cs" />
+    <Compile Include="Configuration\LightConfigurationRepository.cs" />
     <Compile Include="Bridge\Backup.cs" />
     <Compile Include="Bridge\DeviceType.cs" />
     <Compile Include="Bridge\HueBridgeConfiguration.cs" />
@@ -62,7 +65,9 @@
     <Compile Include="Bridge\WhiteListItem.cs" />
     <Compile Include="Ext\ObjectEx.cs" />
     <Compile Include="Lights\HueLight.cs" />
-    <Compile Include="Lights\HueLightAdjustment.cs" />
+    <Compile Include="Lights\LightStateAdjustment.cs" />
+    <Compile Include="Lights\LightStateManager.cs" />
+    <Compile Include="Services\GetBridgeConfigurationRequest.cs" />
     <Compile Include="Services\HueApi\Lights\SetLightNameRequest.cs" />
     <Compile Include="Services\HueApi\Lights\SetLightStateRequest.cs" />
     <Compile Include="Services\LightService.cs" />
@@ -77,8 +82,8 @@
     <Compile Include="Services\HueApi\PhilipsHueRequest.cs" />
     <Compile Include="Lights\LightState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ApplicationConfiguration\AppConfigurationData.cs" />
-    <Compile Include="ApplicationConfiguration\AppConfigurationManager.cs" />
+    <Compile Include="Configuration\ApplicationConfiguration\AppConfigurationData.cs" />
+    <Compile Include="Configuration\ApplicationConfiguration\AppConfigurationManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

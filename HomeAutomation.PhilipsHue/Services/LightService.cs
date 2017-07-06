@@ -8,7 +8,14 @@ using HomeAutomation.PhilipsHue.Services.HueApi.Lights;
 
 namespace HomeAutomation.PhilipsHue.Services
 {
-    public class LightService
+    public interface ILightService
+    {
+        Task SetLightName(int lightId, string name, HueBridge bridge);
+        Task SetLightState(int lightId, HueBridge bridge, LightStateAdjustment state);
+        Task<Dictionary<int, HueLight>> GetLightSetup(HueBridge bridge);
+    }
+
+    public class LightService : ILightService
     {
         private readonly WebClient _webClient;
 
@@ -27,7 +34,7 @@ namespace HomeAutomation.PhilipsHue.Services
                 .ConfigureAwait(false);
         }
 
-        public async Task SetLightState(int lightId, HueBridge bridge, LightState state)
+        public async Task SetLightState(int lightId, HueBridge bridge, LightStateAdjustment state)
         {
             var request = new SetLightStateRequest(lightId, bridge, state);
             // TODO: error handling?

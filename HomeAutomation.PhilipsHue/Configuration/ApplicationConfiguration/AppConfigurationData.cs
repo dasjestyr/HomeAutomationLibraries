@@ -2,7 +2,7 @@
 using HomeAutomation.PhilipsHue.Bridge;
 using Newtonsoft.Json;
 
-namespace HomeAutomation.PhilipsHue.ApplicationConfiguration
+namespace HomeAutomation.PhilipsHue.Configuration.ApplicationConfiguration
 {
     public class AppConfigurationData
     {

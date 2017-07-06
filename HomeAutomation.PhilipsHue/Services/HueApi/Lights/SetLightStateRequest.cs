@@ -8,10 +8,10 @@ namespace HomeAutomation.PhilipsHue.Services.HueApi.Lights
 {
     public class SetLightStateRequest : PhilipsHueRequest
     {
-        private readonly LightState _lightState;
+        private readonly LightStateAdjustment _lightState;
         private readonly int _lightId;
 
-        public SetLightStateRequest(int lightId, HueBridge bridge, LightState state) 
+        public SetLightStateRequest(int lightId, HueBridge bridge, LightStateAdjustment state) 
             : base(HttpMethod.Put, bridge)
         {
             _lightState = state;
@@ -26,7 +26,7 @@ namespace HomeAutomation.PhilipsHue.Services.HueApi.Lights
 
         public override HttpContent GetContent()
         {
-            var body = _lightState.ToJsonContent();
+            var body = _lightState.ToJsonContent(true);
             return body;
         }
     }

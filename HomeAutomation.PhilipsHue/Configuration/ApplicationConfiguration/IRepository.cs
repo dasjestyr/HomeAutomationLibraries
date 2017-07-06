@@ -5,12 +5,12 @@ namespace HomeAutomation.PhilipsHue.Configuration.ApplicationConfiguration
 {
     public interface IRepository<T>
     {
-        Task<List<T>> GetAll();
+        Task<List<T>> GetAllAsync();
 
-        Task<T> Get(string key = null);
+        Task<T> GetAsync(string key = null);
 
-        Task Save(T input);
+        Task SaveAsync(T input);
 
-        Task Delete(string key = null);
+        Task DeleteAsync(string key = null);
     }
 }

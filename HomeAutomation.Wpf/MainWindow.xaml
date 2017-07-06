@@ -18,12 +18,17 @@
             <ComboBox ItemsSource="{Binding Bridges}"
                       DisplayMemberPath="IpAddress"
                       SelectedValue="{Binding SelectedBridge}"/>
-            <Button Command="{Binding UpdateLights}" Content="Test"/>
+            
+            <ComboBox ItemsSource="{Binding Lights}"
+                      DisplayMemberPath="Name"
+                      SelectedValue="{Binding SelectedLight}" />
+            
+            <Button Command="{Binding UpdateLights}" Content="Update Light"/>
 
-            <controls:BindableHueSlider x:Name="Hue" Height="22" Width="Auto" 
+            <controls:BindableHueSlider x:Name="Hue" Height="22" Width="Auto"
                                         Margin="10 0 10 10" VerticalAlignment="Top"
                                         Minimum="0" Maximum="65535" IsMoveToPointEnabled="True"
-                                        Value="{Binding SelectedHue}" 
+                                        Value="{Binding SelectedLight.State.Hue, Mode=TwoWay}" 
                                         Thumb.DragCompleted="Hue_OnDragCompleted"
                                         Command="{Binding UpdateLights}">
                 <controls:BindableHueSlider.Background>
@@ -42,7 +47,7 @@
             <controls:BindableSlider x:Name="Brightness" Height="22" Width="Auto"
                                      Margin="10 0 10 10" VerticalAlignment="Top"
                                      Minimum="0" Maximum="255" IsMoveToPointEnabled="True"
-                                     Value="{Binding SelectedBrightness}"
+                                     Value="{Binding SelectedLight.State.Brightness, Mode=TwoWay}"
                                      Thumb.DragCompleted="Hue_OnDragCompleted"
                                      Command="{Binding UpdateLights}">
                 <controls:BindableSlider.Background>
@@ -56,7 +61,7 @@
             <controls:BindableSlider x:Name="Saturation" Height="22" Width="Auto"
                                      Margin="10 0 10 10" VerticalAlignment="Top"
                                      Minimum="0" Maximum="255" IsMoveToPointEnabled="True"
-                                     Value="{Binding SelectedSaturation}"
+                                     Value="{Binding SelectedLight.State.Saturation, Mode=TwoWay}"
                                      Command="{Binding UpdateLights}">
                 <controls:BindableSlider.Background>
                     <LinearGradientBrush>

@@ -14,18 +14,12 @@ namespace HomeAutomation.Wpf
         public MainWindow()
         {
             InitializeComponent();
+            Loaded += async (sender, args) => await ViewModel.Load();
         }
 
         private void Hue_OnDragCompleted(object sender, DragCompletedEventArgs e)
         {
             ViewModel.UpdateColor();
         }
-
-        private void Hue_OnValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-            ViewModel.UpdateColor();
-        }
     }
-
-
 }

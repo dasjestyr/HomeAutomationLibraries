@@ -52,6 +52,9 @@ namespace HomeAutomation.PhilipsHue.Services
                 .SendAsync<Dictionary<int, HueLight>>(request)
                 .ConfigureAwait(false);
 
+            foreach (var light in response)
+                light.Value.Id = light.Key;
+
             return response;
         }
     }

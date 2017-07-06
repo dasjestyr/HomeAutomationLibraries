@@ -17,13 +17,13 @@ namespace HomeAutomation.PhilipsHue.Configuration
             _fileManager = new ApplicationFileManager();
         }
 
-        public async Task<List<AppConfigurationData>> GetAll()
+        public async Task<List<AppConfigurationData>> GetAllAsync()
         {
-            var config = await Get();
+            var config = await GetAsync();
             return new List<AppConfigurationData> {config};
         }
 
-        public async Task<AppConfigurationData> Get(string key = null)
+        public async Task<AppConfigurationData> GetAsync(string key = null)
         {
             if (_cachedConfig != null)
                 return _cachedConfig;
@@ -36,13 +36,13 @@ namespace HomeAutomation.PhilipsHue.Configuration
             return configuration;
         }
 
-        public async Task Save(AppConfigurationData input)
+        public async Task SaveAsync(AppConfigurationData input)
         {
             await _fileManager.SaveFile(Filename, input);
             _cachedConfig = input;
         }
 
-        public Task Delete(string key = null)
+        public Task DeleteAsync(string key = null)
         {
             throw new NotImplementedException("Deletion of application config is not supported.");
         }

@@ -8,7 +8,7 @@ namespace HomeAutomation.PhilipsHue.Lights
         public bool? IsOn { get; set; }
 
         /// <summary>
-        /// Value from 1 -254
+        /// Value from 1 to 254
         /// </summary>
         [JsonProperty("bri")]
         public byte? Brightness { get; set; }

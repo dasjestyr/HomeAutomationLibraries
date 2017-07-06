@@ -1,5 +1,4 @@
 using System.Threading.Tasks;
-using HomeAutomation.PhilipsHue.Bridge;
 
 namespace HomeAutomation.PhilipsHue.Configuration.ApplicationConfiguration
 {

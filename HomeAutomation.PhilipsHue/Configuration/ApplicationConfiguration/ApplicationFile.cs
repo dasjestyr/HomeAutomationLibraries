@@ -35,7 +35,7 @@ namespace HomeAutomation.PhilipsHue.Configuration.ApplicationConfiguration
             {
                 var jsonText = File.ReadAllText(filePath);
                 result = JsonConvert.DeserializeObject<T>(jsonText);
-            });
+            }).ConfigureAwait(false);
 
             return result;
         }

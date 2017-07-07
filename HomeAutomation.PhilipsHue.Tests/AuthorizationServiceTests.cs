@@ -30,7 +30,7 @@ namespace HomeAutomation.PhilipsHue.Tests
         //    await svc.SetLightState(12, bridge, newSettings).ConfigureAwait(false);
         //}
 
-        [Fact]
+        //[Fact]
         public async Task Do()
         {
             var file = new LightConfiguration();

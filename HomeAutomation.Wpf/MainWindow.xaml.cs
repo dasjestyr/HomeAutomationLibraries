@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls.Primitives;
+using HomeAutomation.Wpf.Common;
 using HomeAutomation.Wpf.Model;
 
 namespace HomeAutomation.Wpf
@@ -15,11 +16,14 @@ namespace HomeAutomation.Wpf
         {
             InitializeComponent();
             Loaded += async (sender, args) => await ViewModel.Load();
+
+            var log = new LogOutput(LogOutput);
+            ViewModel.LogAction = msg => log.Log(msg);
         }
 
-        private void Hue_OnDragCompleted(object sender, DragCompletedEventArgs e)
+        private void OnDragCompleted(object sender, DragCompletedEventArgs e)
         {
-            ViewModel.UpdateColor();
+            ViewModel.UpdateLights();
         }
     }
 }

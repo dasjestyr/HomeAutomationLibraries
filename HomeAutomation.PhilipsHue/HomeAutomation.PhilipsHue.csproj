@@ -69,6 +69,7 @@
     <Compile Include="Lights\HueLight.cs" />
     <Compile Include="Lights\LightStateAdjustment.cs" />
     <Compile Include="Lights\LightStateManager.cs" />
+    <Compile Include="Lights\Scene.cs" />
     <Compile Include="Services\GetBridgeConfigurationRequest.cs" />
     <Compile Include="Services\HueApi\Lights\SetLightNameRequest.cs" />
     <Compile Include="Services\HueApi\Lights\SetLightStateRequest.cs" />

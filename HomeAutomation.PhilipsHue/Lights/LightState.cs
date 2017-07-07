@@ -1,7 +1,9 @@
+using System;
 using Newtonsoft.Json;
 
 namespace HomeAutomation.PhilipsHue.Lights
 {
+    [Serializable]
     public class LightState
     {
         [JsonProperty("on")]

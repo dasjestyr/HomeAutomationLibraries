@@ -1,7 +1,9 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using Newtonsoft.Json;
 
 namespace HomeAutomation.PhilipsHue.Lights
 {
+    [Serializable]
     public class HueLight
     {
         /// <summary>

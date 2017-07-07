@@ -7,71 +7,113 @@
         xmlns:model="clr-namespace:HomeAutomation.Wpf.Model"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:controls="clr-namespace:HomeAutomation.Wpf.Controls"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="Color Setter" Height="400" Width="1050" ResizeMode="NoResize">
     <Window.DataContext>
         <model:HomeModel />
     </Window.DataContext>
-    <Grid>
-        <StackPanel Orientation="Vertical" Margin="10">
-            <TextBlock Text="Bridges" />
-            <ComboBox ItemsSource="{Binding Bridges}"
-                      DisplayMemberPath="IpAddress"
-                      SelectedValue="{Binding SelectedBridge}"/>
-            
-            <ComboBox ItemsSource="{Binding Lights}"
-                      DisplayMemberPath="Name"
-                      SelectedValue="{Binding SelectedLight}" />
-            
-            <Button Command="{Binding UpdateLights}" Content="Update Light"/>
-
-            <controls:BindableHueSlider x:Name="Hue" Height="22" Width="Auto"
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="585*"/>
+            <ColumnDefinition Width="439*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="283*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="0">
+                <TextBlock Text="Bridge" Margin="5 0 0 0" />
+                <ComboBox ItemsSource="{Binding Bridges}" 
+                      Margin="5"
+                      DisplayMemberPath="IpAddress" SelectedValue="{Binding SelectedBridge}" />
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="1">
+                <TextBlock Text="Light Name" Margin="5 0 0 0" />
+                <ComboBox ItemsSource="{Binding Lights}"
+                      Margin="5"
+                      DisplayMemberPath="Name" SelectedValue="{Binding SelectedLight}" />
+            </StackPanel>
+        </Grid>
+        <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="0" Margin="0 10">
+            <StackPanel Orientation="Vertical" Margin="10 0">
+                <TextBox Text="Saved Configuration" />
+                <ComboBox ItemsSource="{Binding SavedScenes}" SelectedValue="{Binding SelectedScene}" DisplayMemberPath="Name">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding ApplyScene}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="Hue" HorizontalAlignment="Center" Margin="2" />
+                <controls:BindableHueSlider x:Name="Hue" Height="22" Width="Auto"
                                         Margin="10 0 10 10" VerticalAlignment="Top"
                                         Minimum="0" Maximum="65535" IsMoveToPointEnabled="True"
-                                        Value="{Binding SelectedLight.State.Hue, Mode=TwoWay}" 
-                                        Thumb.DragCompleted="Hue_OnDragCompleted"
-                                        Command="{Binding UpdateLights}">
-                <controls:BindableHueSlider.Background>
-                    <LinearGradientBrush StartPoint="0,0.5" EndPoint="1.0,0.5" >
-                        <GradientStop Color="#FFFF0000" />
-                        <GradientStop Color="#FEFFFF00" Offset="0.167" />
-                        <GradientStop Color="#FE00FF00" Offset="0.333" />
-                        <GradientStop Color="#FE00FFFF" Offset="0.5"   />
-                        <GradientStop Color="#FE0000FF" Offset="0.667" />
-                        <GradientStop Color="#FEFF00FF" Offset="0.833" />
-                        <GradientStop Color="#FFFF0000" Offset="1.0"   />
-                    </LinearGradientBrush>
-                </controls:BindableHueSlider.Background>
-            </controls:BindableHueSlider>
-            
-            <controls:BindableSlider x:Name="Brightness" Height="22" Width="Auto"
+                                        Value="{Binding SelectedLight.State.Hue, Mode=TwoWay}"
+                                        Thumb.DragCompleted="OnDragCompleted" Command="{Binding ApplyLights}">
+                    <controls:BindableHueSlider.Background>
+                        <LinearGradientBrush StartPoint="0,0.5" EndPoint="1.0,0.5" >
+                            <GradientStop Color="#FFFF0000" />
+                            <GradientStop Color="#FEFFFF00" Offset="0.167" />
+                            <GradientStop Color="#FE00FF00" Offset="0.333" />
+                            <GradientStop Color="#FE00FFFF" Offset="0.5"   />
+                            <GradientStop Color="#FE0000FF" Offset="0.667" />
+                            <GradientStop Color="#FEFF00FF" Offset="0.833" />
+                            <GradientStop Color="#FFFF0000" Offset="1.0"   />
+                        </LinearGradientBrush>
+                    </controls:BindableHueSlider.Background>
+                </controls:BindableHueSlider>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="Brightness" HorizontalAlignment="Center" Margin="2" />
+                <controls:BindableSlider x:Name="Brightness" Height="22" Width="Auto"
                                      Margin="10 0 10 10" VerticalAlignment="Top"
                                      Minimum="0" Maximum="255" IsMoveToPointEnabled="True"
                                      Value="{Binding SelectedLight.State.Brightness, Mode=TwoWay}"
-                                     Thumb.DragCompleted="Hue_OnDragCompleted"
-                                     Command="{Binding UpdateLights}">
-                <controls:BindableSlider.Background>
-                    <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                        <GradientStop Color="White" Offset="1"/>
-                        <GradientStop Color="Black" Offset="0"/>
-                    </LinearGradientBrush>
-                </controls:BindableSlider.Background>
-            </controls:BindableSlider>
-            
-            <controls:BindableSlider x:Name="Saturation" Height="22" Width="Auto"
+                                     Thumb.DragCompleted="OnDragCompleted" Command="{Binding ApplyLights}">
+                    <controls:BindableSlider.Background>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="White" Offset="1"/>
+                            <GradientStop Color="Black" Offset="0"/>
+                        </LinearGradientBrush>
+                    </controls:BindableSlider.Background>
+                </controls:BindableSlider>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="Saturation" HorizontalAlignment="Center" Margin="2" />
+                <controls:BindableSlider x:Name="Saturation" Height="22" Width="Auto"
                                      Margin="10 0 10 10" VerticalAlignment="Top"
                                      Minimum="0" Maximum="255" IsMoveToPointEnabled="True"
                                      Value="{Binding SelectedLight.State.Saturation, Mode=TwoWay}"
-                                     Command="{Binding UpdateLights}">
-                <controls:BindableSlider.Background>
-                    <LinearGradientBrush>
-                        <GradientStop Color="White" />
-                        <GradientStop Color="{Binding Hue, ElementName=Hue}" Offset="1" />
-                    </LinearGradientBrush>
-                </controls:BindableSlider.Background>
-            </controls:BindableSlider>
-            
+                                     Thumb.DragCompleted="OnDragCompleted" Command="{Binding ApplyLights}">
+                    <controls:BindableSlider.Background>
+                        <LinearGradientBrush>
+                            <GradientStop Color="White" />
+                            <GradientStop Color="{Binding Hue, ElementName=Hue}" Offset="1" />
+                        </LinearGradientBrush>
+                    </controls:BindableSlider.Background>
+                </controls:BindableSlider>
+                <Button Content="Save Current Configuration" Margin="15" />
+                <Grid Margin="15 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Content="Undo" Grid.Row="0" Grid.Column="0" Command="{Binding Undo}" />
+                    <Button Content="Redo" Grid.Row="0" Grid.Column="1" Command="{Binding Redo}" />
+                </Grid>
+            </StackPanel>
         </StackPanel>
+        <TextBox AcceptsReturn="True" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" x:Name="LogOutput" FontFamily="Consolas" />
     </Grid>
 </Window>
 

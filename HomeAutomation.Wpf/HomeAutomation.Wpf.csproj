@@ -52,6 +52,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -96,6 +97,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Common\BindableMementoStack.cs" />
+    <Compile Include="Common\LogOutput.cs" />
+    <Compile Include="Common\ObjectExt.cs" />
     <Compile Include="Controls\BindableHueSlider.cs" />
     <Compile Include="Controls\BindableSlider.cs" />
     <Compile Include="HslColor.cs" />

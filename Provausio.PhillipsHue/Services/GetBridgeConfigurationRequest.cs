@@ -1,9 +1,9 @@
 using System.Net.Http;
+using Provausio.Core.WebClient;
+using Provausio.PhillipsHue.Bridge;
+using Provausio.PhillipsHue.Services.HueApi;
 
-using HomeAutomation.PhilipsHue.Bridge;
-using HomeAutomation.PhilipsHue.Services.HueApi;
-
-namespace HomeAutomation.PhilipsHue.Services
+namespace Provausio.PhillipsHue.Services
 {
     public class GetBridgeConfigurationRequest : PhilipsHueRequest
     {

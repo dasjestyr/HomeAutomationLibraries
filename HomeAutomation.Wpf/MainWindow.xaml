@@ -45,9 +45,9 @@
                 <TextBox Text="Saved Configuration" />
                 <ComboBox ItemsSource="{Binding SavedScenes}" SelectedValue="{Binding SelectedScene}" DisplayMemberPath="Name">
                     <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="SelectionChanged">
+                        <EventTrigger EventName="SelectionChanged">
                             <i:InvokeCommandAction Command="{Binding ApplyScene}" />
-                        </i:EventTrigger>
+                        </EventTrigger>
                     </i:Interaction.Triggers>
                 </ComboBox>
             </StackPanel>

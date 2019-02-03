@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>HomeAutomation.PhilipsHue.Tests</RootNamespace>
     <AssemblyName>HomeAutomation.PhilipsHue.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -54,12 +55,6 @@
   <ItemGroup>
     <Compile Include="AuthorizationServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\HomeAutomation.PhilipsHue\HomeAutomation.PhilipsHue.csproj">
-      <Project>{c7f8afda-8bf0-4911-acfd-1f62b507ac11}</Project>
-      <Name>HomeAutomation.PhilipsHue</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

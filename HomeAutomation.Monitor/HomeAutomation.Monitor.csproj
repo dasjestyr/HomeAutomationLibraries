@@ -8,9 +8,10 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>HomeAutomation.Monitor</RootNamespace>
     <AssemblyName>HomeAutomation.Monitor</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -56,12 +57,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\HomeAutomation.PhilipsHue\HomeAutomation.PhilipsHue.csproj">
-      <Project>{C7F8AFDA-8BF0-4911-ACFD-1F62B507AC11}</Project>
-      <Name>HomeAutomation.PhilipsHue</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
-using HomeAutomation.PhilipsHue;
-using HomeAutomation.PhilipsHue.Bridge;
-using HomeAutomation.PhilipsHue.Configuration.ApplicationConfiguration;
-using HomeAutomation.PhilipsHue.Lights;
-using HomeAutomation.PhilipsHue.Services;
 using Topshelf;
 
 namespace HomeAutomation.Monitor

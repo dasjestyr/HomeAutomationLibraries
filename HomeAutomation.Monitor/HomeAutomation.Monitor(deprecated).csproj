@@ -58,5 +58,11 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Provausio.PhillipsHue\Provausio.PhillipsHue.csproj">
+      <Project>{6b70b0b8-c627-4a3c-8c99-e23b33136f37}</Project>
+      <Name>Provausio.PhillipsHue</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

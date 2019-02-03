@@ -1,4 +1,8 @@
 ﻿using System;
+using Provausio.PhillipsHue.Bridge;
+using Provausio.PhillipsHue.Configuration.ApplicationConfiguration;
+using Provausio.PhillipsHue.Lights;
+using Provausio.PhillipsHue.Services;
 using Topshelf;
 
 namespace HomeAutomation.Monitor
@@ -23,15 +27,15 @@ namespace HomeAutomation.Monitor
     public class HostingConfiguration : ServiceControl
     {
         private string _appName = "provausio_automation_svc";
-        private string _deviceType = "destkop jeremy";
+        private string _deviceType = "desktop jeremy";
 
         private CellphoneMonitor _cellphoneMonitor;
-        private LightService _lightSvc;
-        private HueBridge _bridge;
+        private readonly LightService _lightSvc;
+        private readonly HueBridge _bridge;
 
         public HostingConfiguration()
         {
-            var configManager = new AppConfigurationManager(_deviceType);
+            var configManager = new AppConfigurationManager("", _deviceType);
             _bridge = configManager.AppConfiguration.HueBridges[0];
             _lightSvc = new LightService();
         }
